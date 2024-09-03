@@ -12,7 +12,7 @@ movies['tags'] = movies['overview'] + movies['genre']
 new_data = movies.drop(columns=['overview', 'genre'])
 
 # Feature extraction using CountVectorizer
-cv = CountVectorizer(max_features=10000, stop_words='english')
+cv = CountVectorizer(max_features=1000, stop_words='english')
 vector = cv.fit_transform(new_data['tags'].values.astype('U')).toarray()
 
 # Calculate similarity matrix
