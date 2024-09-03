@@ -2,16 +2,18 @@ import streamlit as st
 import pickle
 import requests
 import pandas as pd
-
+from sklearn.feature_extraction.text 
+import CountVectorizer
+from sklearn.metrics.pairwise 
+import cosine_similarity
 movies=pd.read_csv('movie_recommender_system-main/dataset.csv')
 movies.isnull().sum()
 movies=movies[['id', 'title', 'overview', 'genre']]
 movies['tags'] = movies['overview']+movies['genre']
 new_data  = movies.drop(columns=['overview', 'genre'])
-from sklearn.feature_extraction.text import CountVectorizer
+
 cv=CountVectorizer(max_features=10000, stop_words='english')
 vector=cv.fit_transform(new_data['tags'].values.astype('U')).toarray()
-from sklearn.metrics.pairwise import cosine_similarity
 similarity=cosine_similarity(vector)
 def recommand(movies):
     index=new_data[new_data['title']==movies].index[0]
