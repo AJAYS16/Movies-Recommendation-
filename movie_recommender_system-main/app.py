@@ -42,7 +42,7 @@ st.header("Movie Recommender System")
 # Image Carousel Component
 import streamlit.components.v1 as components
 
-imageCarouselComponent = components.declare_component("image-carousel-component", path=r"frontend\public")
+imageCarouselComponent = components.declare_component("image-carousel-component", path=r"movie_recommender_system-main/frontend/public")
 
 # Sample image URLs for carousel
 imageUrls = [
