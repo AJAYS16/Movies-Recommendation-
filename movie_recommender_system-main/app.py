@@ -3,7 +3,7 @@ import pickle
 import requests
 import pandas as pd
 
-movies=pd.read_csv('dataset.csv')
+movies=pd.read_csv('movie_recommender_system-main/dataset.csv')
 movies.isnull().sum()
 movies=movies[['id', 'title', 'overview', 'genre']]
 movies['tags'] = movies['overview']+movies['genre']
